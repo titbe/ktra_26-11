@@ -1,12 +1,15 @@
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const Payment = () => {
+const navigation = useNavigation();
+
   return (
     <View>
       <View style={{borderRadius:27 , borderColor:'rgba(1, 118, 63, 0.40)', borderWidth:1, height: 253}}>
         <View style={{marginTop:30, marginHorizontal: 15}}> 
-            <TouchableOpacity style={{backgroundColor:'#F8F8FB', borderRadius:9, height: 44, width: 45, alignItems:'center', justifyContent:'center'}}>
+            <TouchableOpacity style={{backgroundColor:'#F8F8FB', borderRadius:9, height: 44, width: 45, alignItems:'center', justifyContent:'center'}} onPress={() => {navigation.navigate('Cart');}}>
                 <Image source={require("../assets/back.png")}/>
             </TouchableOpacity>
             <View style={{alignItems:'center', flexDirection: 'row', justifyContent:'space-between', paddingTop:40}}>

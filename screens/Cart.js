@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native'
 import React from 'react'
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 const DataCart =[
     {
         img: require('../assets/Rectangle31.png'),
@@ -34,6 +35,7 @@ const ListCart = ({item}) => {
 //       setQuantity(quantity - 1);
 //     }
 //   };
+
     return (
       <View style={{backgroundColor:'#F8F8FB', borderRadius:16, marginTop: 15}}>
         <View style={{padding: 10, flexDirection:'row'}}>
@@ -62,6 +64,8 @@ const ListCart = ({item}) => {
   }
 
 const Cart = () => {
+const navigation = useNavigation();
+
   return (
     <View style={{marginHorizontal: 15, marginTop:50}}>
         <TouchableOpacity style={{backgroundColor:'#F8F8FB', borderRadius:9, height: 44, width: 45, alignItems:'center', justifyContent:'center'}}>
@@ -78,7 +82,7 @@ const Cart = () => {
             <Text style={{fontSize:18, color:'#F08F5F', fontWeight: 700}}>₹ 1,527</Text>
         </View>
 
-        <TouchableOpacity style={{backgroundColor:'#F08F5F', borderRadius: 16, alignItems:'center', marginTop:50}}>
+        <TouchableOpacity style={{backgroundColor:'#F08F5F', borderRadius: 16, alignItems:'center', marginTop:50}} onPress={() => {navigation.navigate('Payment');}}>
             <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal: 22, paddingVertical:24}}>
                 <Text style={{color: '#FFF', fontSize: 18, fontWeight: 700}}>Proceed to checkout</Text>
             </View>
